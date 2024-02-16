@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+            max-width: 80%; /* Adjust the maximum width as needed */
+            margin: auto; /* Center the container on the page */
+        }
+
+        .svg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+   
+
+		.additional-image {
+            position: absolute;
+            width: 20%; /* Adjust width as needed. There are two classes of image size to allow for 2 diff sizes */
+            height: auto;
+            display: none; /* Initially hide the additional image */
+            border: 2px solid white;
+        }
+
+        .larger-image {
+            width: 30%; /* Adjust width as needed for a larger image size. Inherits from prev class. */
+        }
+
+        .st0 {
+            fill: #FF000000;
+            stroke: white;
+            stroke-width: 3;
+            stroke-dasharray: 8, 4;
+        }
+
+        .st0:hover {
+            cursor: pointer;
+            stroke: #FFAAAA;
+        }
+
+        .st0.clicked {
+            fill: #FF000000;
+            stroke: red;
+            stroke-width: 3;
+            stroke-dasharray: 8, 4;
+        }
+    </style>
+    <title>Panocular SVG</title>
+</head>
+<body>
+    <div class="image-container">
+        <svg class="svg-overlay" viewBox="0 0 1024 612" preserveAspectRatio="xMidYMid meet" xmlns="https://www.w3.org/2000/svg">
+            <!-- Your SVG content here -->
+            <polygon id="clickable-polygon1" class="st0" points="400,200 450,200 450,250 400,250"></polygon>
+            <polygon id="clickable-polygon2" class="st0" points="425,296 411,251 466,233 481,277"></polygon>
+            <polygon id="clickable-polygon3" class="st0" points="522,340 504,288 547,273 565,326"></polygon>
+            <circle id="clickable-circle" class="st0" cx="526" cy="207" r="20"></circle>
+            <img id="baseImage" src="https://panocular.net/wp-content/uploads/2023/06/Kakhovka_Dam-4.jpg" alt="Incident Area" style="width: 100%; height: auto;">
+        </svg>
+
+        <img id="additional-image1" class="additional-image" src="https://panocular.net/wp-content/uploads/2023/05/FakeSatelliteImage1.jpg" alt="Donetsk_roadsigns" style="top: 2%; left: 2%;">
+        <img id="additional-image2" class="additional-image" src="https://panocular.net/wp-content/uploads/2023/05/FakeSatelliteImage1.jpg" alt="Donetsk_building_shelled" style="top: 60%; left: 2%;">
+        <img id="additional-image3" class="additional-image" src="https://panocular.net/wp-content/uploads/2023/05/FakeSatelliteImage1.jpg" alt="Donetsk_car_shelled" style="top: 60%; left: 68%;">
+        <img id="additional-image4" class="additional-image larger-image" src="https://panocular.net/wp-content/uploads/2023/05/FakeSatelliteImage1.jpg" alt="Ukraine-Donetsk_map" style="top: 2%; left: 58%;">
+
+
+        <script>
+            document.querySelector(".svg-overlay").addEventListener("click", handleSvgClick);
+
+            function handleSvgClick(event) {
+                var target = event.target;
+
+                // Check if the click target is an SVG element (polygon or circle)
+                if (target.tagName === "polygon" || target.tagName === "circle") {
+                    var svgId = target.id;
+                    console.log("Clicked SVG:", svgId);
+
+                    // Toggle fill color for polygons and circles
+                    target.classList.toggle("clicked");
+
+                    // Show/hide corresponding additional image for polygons and circles
+                    if (svgId.startsWith("clickable-polygon")) {
+                        var additionalImageId = svgId.replace("clickable-polygon", "additional-image");
+                        var additionalImage = document.getElementById(additionalImageId);
+                        additionalImage.style.display = target.classList.contains("clicked") ? "inline" : "none";
+                    } else if (svgId === "clickable-circle") {
+                        var additionalImage = document.getElementById("additional-image4");
+                        additionalImage.style.display = target.classList.contains("clicked") ? "inline" : "none";
+                    }
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
