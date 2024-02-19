@@ -34,4 +34,6 @@ How to use:
     For example the top left polygon: polygon id="clickable-polygon1" class="st0" points="400,200 450,200 450,250 400,250"></polygon>  
     These coordinates can be changed manually, or copied from the XML inside the 'interactiveTemplate.svg' file.
 
+* Change 'max-width: 80%;' for the default graphic size.
+
 * The new HTML file can be hosted on your own server or on a Github page.
