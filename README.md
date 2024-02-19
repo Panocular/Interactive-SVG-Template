@@ -8,7 +8,7 @@ https://panocular.github.io/case824/
 
 These are the template files for a basic interactive HTML page with SVG polygons on top of a base image. The HTML page can also be embedded in a WordPress post via a iFrames.
 The polygons can be clicked to toggle a popup image.
-The Entire graphic is responsive if 'InteractiveSVG_perc_responsive.html' is used.
+The Entire graphic is responsive if 'index.html' is used.
 
 Temporary image placeholders are provided. 
 
