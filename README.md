@@ -8,20 +8,25 @@ How to use:
 
 * This template uses 1 base image and 4 additional images.
 
-* Replace the src="***" with your own image URLs.
+* Edit the 'interactiveTemplate.svg' file to build a static infographic with 4 polygons and popup images. From this file, you will need the polygon coordinates (to be found in the XML tree) and the relative position of the popup images.
 
-* The additional image positions are defined in the percentual dimensions of the base image.
-  For example: tyle="top: 50%; left: 50%;" will place the additional image in the horizontal and vertical center of the base image, with its top left corner at these coordinates.
+* Edit the 'InteractiveSVG_perc_responsive.html' file:
+    Replace the src="***" with your own image URLs.
 
-* There are 2 classes for image size. 
+    The additional image positions are defined in the percentual dimensions of the base image.
+    For example: tyle="top: 50%; left: 50%;" will place the additional image in the horizontal and vertical center of the base image, with its top left corner at these coordinates.
 
-  class="additional-image" and class="additional-image larger-image"
+    There are 2 classes for image size. 
 
-  As an example, Image4 is larger than the other images, using the "additional-image larger-image" class.
+    class="additional-image" and class="additional-image larger-image"
 
-* The SVG polygons have absolute coordinates and should be within the dimensions of the base image.
-  For example the top left polygon: polygon id="clickable-polygon1" class="st0" points="400,200 450,200 450,250 400,250"></polygon>  
-  These coordinates can be changed manually, or copied from the XML inside the 'interactiveTemplate.svg' file.
+    As an example, Image4 is larger than the other images, using the "additional-image larger-image" class.
 
+    The SVG polygons have absolute coordinates and should be within the dimensions of the base image.
+    For example the top left polygon: polygon id="clickable-polygon1" class="st0" points="400,200 450,200 450,250 400,250"></polygon>  
+    These coordinates can be changed manually, or copied from the XML inside the 'interactiveTemplate.svg' file.
+
+* The new HTML file can be hosted on your own server or on a Github page.
+* This is an example of a completed file: https://panocular.github.io/case824/
   
   
