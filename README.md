@@ -1,3 +1,11 @@
+This template can be viewed here: 
+
+https://panocular.github.io/Interactive-SVG-Template/
+
+An example of a completed infographic using this template: 
+
+https://panocular.github.io/case824/
+
 These are the template files for a basic interactive HTML page with SVG polygons on top of a base image. The HTML page can also be embedded in a WordPress post via a iFrames.
 The polygons can be clicked to toggle a popup image.
 The Entire graphic is responsive if 'InteractiveSVG_perc_responsive.html' is used.
@@ -27,6 +35,3 @@ How to use:
     These coordinates can be changed manually, or copied from the XML inside the 'interactiveTemplate.svg' file.
 
 * The new HTML file can be hosted on your own server or on a Github page.
-* This is an example of a completed file: https://panocular.github.io/case824/
-  
-  
